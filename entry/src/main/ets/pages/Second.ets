@@ -7,13 +7,22 @@ struct Second {
 
   build() {
     Row() {
-      Column() {
+      Column({ space: 20 }) {
         Text(this.message)
           .fontSize(40)
           .fontWeight(FontWeight.Bold)
-        Text(this.src)
+        Text(`来自上一页: ${this.src}`)
           .fontSize(15)
           .fontColor(Color.Gray)
+        Button('Back')
+          .width('90%')
+          .fontSize(20)
+          .onClick(() => {
+            router.showAlertBeforeBackPage({
+              message: "返回到上一级吗？"
+            })
+            router.back()
+          })
       }
       .width('100%')
     }
