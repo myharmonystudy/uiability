@@ -4,6 +4,12 @@ import router from '@ohos.router'
 struct Index {
   @State message: string = 'Index Page'
 
+  onPageShow(){
+    try {
+      this.message = (router.getParams() as Record<string, string>)['src'];
+    }catch (err){}
+  }
+
   build() {
     Row() {
       Column({ space: 20 }) {

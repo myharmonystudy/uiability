@@ -21,7 +21,7 @@ struct Second {
             router.showAlertBeforeBackPage({
               message: "返回到上一级吗？"
             })
-            router.back()
+            router.back({url:'pages/Index',params:{src:'Second传回来的消息'}})
           })
       }
       .width('100%')
